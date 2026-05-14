@@ -5,22 +5,34 @@
 <header class="header">
   <div class="fw">
     <div class="logo" style="display: flex">
-      <a href="#">
+      <a href="#main-content">
         <img
           src="images/favicons/favicon-no-bg.svg"
           height="100"
-          alt="Nikos Tsigros - Web Developer Logo"
+          width="100"
+          alt=""
         />
+        <span class="visually-hidden">Nikos Tsigros — home</span>
       </a>
     </div>
-    <a href="#" class="menu-btn"><span></span></a>
-    <div class="top-menu">
+    <button
+      type="button"
+      class="menu-btn"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open menu"
+    >
+      <span aria-hidden="true"></span>
+    </button>
+    <nav id="primary-navigation" class="top-menu" aria-label="Primary">
       <ul>
         <li><a href="#about-section">About</a></li>
         <li><a href="#works-section">Works</a></li>
         <li><a href="#contact-section">Contact</a></li>
       </ul>
-      <a href="#" class="close"></a>
-    </div>
+      <button type="button" class="close" aria-label="Close menu">
+        <i class="icon ion ion-close" aria-hidden="true"></i>
+      </button>
+    </nav>
   </div>
 </header>

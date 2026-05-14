@@ -2,59 +2,97 @@
 // Contact section - CSS imported in layout
 ---
 
-<div class="section contacts align-left" id="contact-section">
+<section class="section contacts align-left" id="contact-section" aria-labelledby="contact-section-title">
   <div class="fw">
     <div class="titles">
-      <h2 class="title">Contact Me</h2>
+      <h2 class="title" id="contact-section-title">Contact Me</h2>
     </div>
     <div class="contact-form">
-      <form id="cform" method="post">
+      <form id="cform" method="post" novalidate aria-describedby="contact-required-hint">
+        <p id="contact-required-hint" class="visually-hidden">
+          Fields marked as required must be filled in before sending.
+        </p>
         <div class="row">
           <div class="col col-m-12 col-t-6 col-d-6">
             <div class="value">
-              <input type="text" name="name" placeholder="Name *" />
-            </div>
-          </div>
-          <div class="col col-m-12 col-t-6 col-d-6">
-            <div class="value">
-              <input type="tel" name="tel" placeholder="Phone *" />
-            </div>
-          </div>
-          <div class="col col-m-12 col-t-6 col-d-6">
-            <div class="value">
-              <input type="text" name="email" placeholder="Email *" />
-            </div>
-          </div>
-          <div class="col col-m-12 col-t-6 col-d-6">
-            <div class="value">
+              <label for="contact-name">Name <span aria-hidden="true">*</span></label>
               <input
+                id="contact-name"
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Name *"
+                required
+                aria-required="true"
+              />
+            </div>
+          </div>
+          <div class="col col-m-12 col-t-6 col-d-6">
+            <div class="value">
+              <label for="contact-tel">Phone <span aria-hidden="true">*</span></label>
+              <input
+                id="contact-tel"
+                type="tel"
+                name="tel"
+                autocomplete="tel"
+                placeholder="Phone *"
+                required
+                aria-required="true"
+              />
+            </div>
+          </div>
+          <div class="col col-m-12 col-t-6 col-d-6">
+            <div class="value">
+              <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="Email *"
+                required
+                aria-required="true"
+                inputmode="email"
+              />
+            </div>
+          </div>
+          <div class="col col-m-12 col-t-6 col-d-6">
+            <div class="value">
+              <label for="contact-subject">Subject <span aria-hidden="true">*</span></label>
+              <input
+                id="contact-subject"
                 type="text"
                 name="subject"
+                autocomplete="off"
                 placeholder="Subject *"
+                required
+                aria-required="true"
               />
             </div>
           </div>
           <div class="col col-m-12 col-t-12 col-d-12">
             <div class="value">
-              <textarea name="message" placeholder="Message"></textarea>
+              <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+              <textarea
+                id="contact-message"
+                name="message"
+                placeholder="Message"
+                required
+                aria-required="true"
+              ></textarea>
             </div>
           </div>
           <div class="col col-m-12 col-t-12 col-d-12">
-            <a
-              href="#"
-              class="btn"
-              onclick="$('#cform').submit(); return false;"
-              >Send Message</a
-            >
+            <button type="submit" class="btn">Send Message</button>
           </div>
         </div>
       </form>
-      <div class="alert-success">
-        <p>
+      <div class="alert-success" role="status" aria-live="polite" aria-atomic="true">
+        <p tabindex="-1">
           Thanks, your message is sent successfully. We will contact you
           shortly!
         </p>
       </div>
     </div>
   </div>
-</div>
+</section>

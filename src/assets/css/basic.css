@@ -433,6 +433,7 @@ a:hover {
 
 /* 6. Buttons */
 a.btn,
+button.btn,
 .btn {
 	padding: 2px 0 0 0;
 	display: inline-block;
@@ -455,6 +456,7 @@ a.btn,
 }
 
 a.btn:hover,
+button.btn:hover,
 .btn:hover {
 	box-shadow: inset 0 -14px 0 #fdd912;
 	-moz-box-shadow: inset 0 -14px 0 #fdd912;
@@ -462,6 +464,14 @@ a.btn:hover,
 	-khtml-box-shadow: inset 0 -14px 0 #fdd912;
 }
 
+button.btn {
+	height: auto;
+	min-height: 0;
+	margin: 0 0 25px 0;
+	border-bottom: none;
+	background: transparent;
+	font-family: 'Poppins', helvetica;
+}
 /* 7. Preloader */
 .preloader {
 	position: fixed;
@@ -774,5 +784,56 @@ blockquote {
 		top: 0px;
 	}
 
+}
+
+/* Accessibility */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10001;
+	padding: 0.75rem 1rem;
+	background: #292929;
+	color: #ffffff;
+	font-weight: 600;
+	text-decoration: none;
+	transform: translateY(-120%);
+	transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid #fdd912;
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 

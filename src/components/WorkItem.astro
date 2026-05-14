@@ -26,8 +26,12 @@ const colClass = `col col-m-12 col-t-6 col-d-4 box-item ${filters}`.trim();
   <div class="item">
     <div class="desc">
       <div class="image">
-        <a href={`#${popupHash}`} class="has-popup"
-          ><img src={thumbSrc} alt={thumbAlt} /></a
+        <a
+          href={`#${popupHash}`}
+          class="has-popup"
+          aria-haspopup="dialog"
+          aria-label={`Open details: ${title}`}
+          ><img src={thumbSrc} alt="" /></a
         >
       </div>
     </div>
@@ -43,6 +47,7 @@ const colClass = `col col-m-12 col-t-6 col-d-4 box-item ${filters}`.trim();
         <p>{description}</p>
         <p>{technologies}</p>
         <a href={projectUrl} class="btn" target="_blank" rel="noopener noreferrer"
+          aria-label={`${projectLabel} (opens in a new tab)`}
           >{projectLabel}</a
         >
       </div>
