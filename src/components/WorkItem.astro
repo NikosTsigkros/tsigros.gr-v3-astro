@@ -1,0 +1,51 @@
+---
+import type { WorkEntry } from "../settings/works";
+
+export type Props = WorkEntry;
+
+const {
+  popupId,
+  filters,
+  thumbSrc,
+  thumbAlt,
+  fullSrc,
+  fullAlt,
+  category,
+  title,
+  description,
+  technologies,
+  projectUrl,
+  projectLabel = "View Project",
+} = Astro.props;
+
+const popupHash = `popup-${popupId}`;
+const colClass = `col col-m-12 col-t-6 col-d-4 box-item ${filters}`.trim();
+---
+
+<div class={colClass}>
+  <div class="item">
+    <div class="desc">
+      <div class="image">
+        <a href={`#${popupHash}`} class="has-popup"
+          ><img src={thumbSrc} alt={thumbAlt} /></a
+        >
+      </div>
+    </div>
+  </div>
+  <div id={popupHash} class="popup-box mfp-fade mfp-hide">
+    <div class="content">
+      <div class="image">
+        <img src={fullSrc} alt={fullAlt} />
+      </div>
+      <div class="desc">
+        <div class="category">{category}</div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <p>{technologies}</p>
+        <a href={projectUrl} class="btn" target="_blank" rel="noopener noreferrer"
+          >{projectLabel}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
